@@ -10,9 +10,9 @@ class OpenGraph
 		{
 			$objTemplate = new \FrontendTemplate('mod_news_opengraph');
 
-			$objTemplate->title       = htmlentities($arrRow['headline']);
+			$objTemplate->title       = htmlentities($arrRow['headline'], ENT_QUOTES);
 			$objTemplate->url         = substr(\Environment::Get('base'), 0, -1) . \Environment::Get('requestUri');
-			$objTemplate->description = preg_replace( "/\r|\n/", "", htmlentities(strip_tags($arrRow['teaser'])));
+			$objTemplate->description = preg_replace( "/\r|\n/", "", htmlentities(strip_tags($arrRow['teaser'])), ENT_QUOTES);
 
 			if($arrRow['addOGImage'])
 			{
